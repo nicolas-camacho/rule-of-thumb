@@ -1,0 +1,15 @@
+{
+  "name": "rule-of-thumb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nicolas-camacho/rule-of-thumb.git",
+  "author": "nicolas-camacho <nicolas.camacho@ideaware.co>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2"
+  }
+}
