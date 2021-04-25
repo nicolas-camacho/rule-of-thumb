@@ -69,5 +69,9 @@ export const NavLinks = styled.ul`
             font-weight: 300;
             text-align: right;
         }
+
+        li:last-child {
+            order: 0;
+        }
     }
 `

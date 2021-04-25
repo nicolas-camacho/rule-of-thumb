@@ -18,7 +18,7 @@ export const Navbar = () => {
     return (
         <Nav>
             <CenteredLayout>
-                <LogoText>Rule of Thumb.</LogoText>
+                <LogoText>Rule of thumb.</LogoText>
                 <Hamburger>
                     <img src={`${hamburger}`} />
                 </Hamburger>
@@ -30,7 +30,7 @@ export const Navbar = () => {
                         <a href="#">How It Works</a>
                     </li>
                     <li>
-                        <a href="#">Log In/Sign Up</a>
+                        <a href="#">Login / Sign Up</a>
                     </li>
                     <li>
                         <form>
