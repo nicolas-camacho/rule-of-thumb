@@ -1,4 +1,4 @@
-//CORE
+
 import styled from "styled-components";
 
 export const LogoText = styled.h1`
@@ -7,4 +7,8 @@ export const LogoText = styled.h1`
     font-size: 2rem;
     font-weight: 400;
     line-height: 2.5rem;
+
+    @media all and (min-width: 1100px) {
+        margin-top: 3rem;
+    }
 `

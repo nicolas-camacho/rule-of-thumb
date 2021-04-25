@@ -1,4 +1,3 @@
-//CORE
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
@@ -15,6 +14,10 @@ export const Nav = styled.nav`
         rgba(0, 0, 0, .8) 0%, 
         rgba(0, 0, 0, 0) 80%
     );
+
+    @media all and (min-width: 1100px) {
+        min-height: 22vh;
+    }
 `
 
 export const NavLinks = styled.ul`
@@ -30,12 +33,14 @@ export const NavLinks = styled.ul`
     background-color: ${props => props.theme.darkerBackground};
     transform: translateX(100vw);
     list-style: none;
+    margin: 0;
 
     li {
         width: 100%;
         margin: 3rem 0;
         font-size: 2rem;
         text-align: center;
+        cursor: pointer;
     }
 
     a {
@@ -56,13 +61,13 @@ export const NavLinks = styled.ul`
         padding: 0;
         background-color: transparent;
         transform: translateX(0);
-    }
 
-    li {
-        width: fit-content;
-        margin: 0 1rem 0 0;
-        font-size: 1rem;
-        font-weight: 300;
-        text-align: right;
+        li {
+            width: fit-content;
+            margin: 0 1rem 0 0;
+            font-size: 1rem;
+            font-weight: 300;
+            text-align: right;
+        }
     }
 `

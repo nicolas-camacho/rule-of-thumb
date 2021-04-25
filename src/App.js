@@ -1,7 +1,6 @@
-//CORE
 import React from "react";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-//COMPONENTS
+
 import {
     Navbar
 } from "./components";

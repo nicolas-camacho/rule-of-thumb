@@ -1,3 +1,5 @@
 export * from "./Nav";
-export * from "./Text";
+export * from "./Texts";
 export * from "./Layout";
+export * from "./Inputs";
+export * from "./Buttons";
