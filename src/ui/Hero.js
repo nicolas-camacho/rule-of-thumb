@@ -38,3 +38,57 @@ export const HeroBackground = styled.img`
         height: auto;
     }
 `
+
+export const HeroFooter = styled.div`
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    background-color: ${props => props.theme.lightBackground};
+`
+
+export const HeroFooterLeft = styled.div`
+    position: relative;
+    display: flex;
+    width: 30%;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 .25rem 0 0;
+    background-color: ${props => props.theme.darkBackground};
+    color: ${props => props.theme.white};
+    font-weight: 300;
+    text-transform: uppercase;
+
+    &:after {
+        position: absolute;
+        right: -.5rem;
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 0.25rem solid transparent;
+        border-bottom: 0.25rem solid transparent;
+        border-left: 0.5rem solid ${props => props.theme.darkBackground};
+        content: ' ';
+    }
+
+    @media all and (min-width: 1100px) {
+        padding-right: 1rem;
+
+        &:after {
+            border-top-width: 0.33rem;
+            border-bottom-width: 0.33rem;
+        }
+    }    
+`
+
+export const HeroFooterRight = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 0 0 .75rem;
+
+    @media all and (min-width: 1100px) {
+        padding-left: 1rem;
+    }
+`

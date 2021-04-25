@@ -4,6 +4,7 @@ export const IconButton = styled.button`
     padding: 0;
     border: 0;
     background-color: transparent;
+    cursor: pointer;
 
     & > img {
         width: 100%;
@@ -31,5 +32,12 @@ export const Hamburger = styled(IconButton)`
     @media all and (min-width: 1100px) {
         display: none;
     }
+`
 
+export const ColoredButton = styled(IconButton)`
+    background-color: rgba(${props => props.backgroundColor}, .8);
+
+    &:hover {
+        background-color: rgba(${props => props.backgroundColor}, 1);
+    }
 `

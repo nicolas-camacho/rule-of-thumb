@@ -24,6 +24,10 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 400;
     }
 
+    a, a:visited {
+        color: ${props => props.theme.white};
+    }
+
     body {
         position: relative;
     }
