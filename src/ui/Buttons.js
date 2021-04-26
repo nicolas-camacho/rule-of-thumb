@@ -41,3 +41,22 @@ export const ColoredButton = styled(IconButton)`
         background-color: rgba(${props => props.backgroundColor}, 1);
     }
 `
+
+export const BigSubmitButton = styled.button`
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    border: 2px solid ${props => props.theme.darkerBackground};
+    background: transparent;
+    color: ${props => props.theme.darkerGray};
+    font-size: 1.5rem;
+
+    @media all and (min-width: 768px) {
+        width: 16rem;
+    }
+
+    @media all and (min-width: 1100px) {
+        width: 20rem;
+    }
+`

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import {IconButton} from "./"
+
 export const Banner = styled.aside`
     position: relative;
     display: flex;
@@ -18,9 +20,34 @@ export const Banner = styled.aside`
         letter-spacing: -.05rem;
     }
 
+    ${IconButton} {
+        display: none;
+    }
+
+    h2 {
+        position: relative;
+        margin: 0 0 1rem;
+        color: ${props => props.theme.darkGray};
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    @media all and (min-width: 768px) {
+        h2 {
+            margin-bottom: 0;
+            font-size: 1.5rem;
+        }
+    }
+
     @media all and (min-width: 1100px) {
         p {
             font-size: 1rem;
+        }
+
+        ${IconButton} {
+            display: block;
+            margin-left: 2rem;
         }
     }
 `
@@ -73,5 +100,27 @@ export const BannerRight = styled.div`
 
     @media all and (min-width: 768px) {
         flex-basis: 80%;
+    }
+`
+
+export const BannerBackground = styled.img`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    opacity: .2;
+    pointer-events: none;
+
+    @media all and (min-width: 768px) {
+        top: -230%;
+    }
+`
+
+export const BannerButtonContainer = styled.div`
+    width: 100%;
+
+    @media all and (min-width: 768px) {
+        width: auto;
     }
 `
