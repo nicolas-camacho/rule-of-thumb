@@ -1,6 +1,8 @@
 
 import styled from "styled-components";
 
+import {Banner} from "./" 
+
 export const CenteredLayout = styled.div`
     display: contents;
 

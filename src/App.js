@@ -7,6 +7,7 @@ import { StoreProvider } from "./store";
 import {
     Navbar,
     Header,
+    TipTop
 } from "./components";
 
 export default () => {
@@ -16,6 +17,7 @@ export default () => {
                 <GlobalStyle />
                 <Navbar />
                 <Header />
+                <TipTop />
             </ThemeProvider>
         </StoreProvider>
     )
