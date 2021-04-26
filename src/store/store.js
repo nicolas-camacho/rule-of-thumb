@@ -1,5 +1,5 @@
 import React, {useContext, useReducer, createContext, useEffect} from "react";
-import firebase from "../store/firebase";
+import firebase from "./firebase";
 
 const StoreContext = createContext();
 
@@ -25,10 +25,10 @@ const updateMainVote = (state, action) => {
 export const StoreProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, {
         publics: [],
-        mainVote: "none"
+        mainVote: []
     });
 
-    useEffect(() => {
+    const getPublics = () => {
         let unsubscribe = firebase
         .firestore()
         .collection('publics')
@@ -41,8 +41,30 @@ export const StoreProvider = ({ children }) => {
             })
             dispatch({ type: "publicsUpdated", payload: data});
         })
-
+    
         return () => unsubscribe()
+    }
+    
+    const getCurrent = () => {
+        let unsubscribe = firebase
+        .firestore()
+        .collection('currentRuling')
+        .onSnapshot( snapshot => {
+            const data = snapshot.docs.map( doc => {
+                return {
+                    id : doc.id,
+                    ...doc.data()
+                }
+            })
+            dispatch({ type: "mainVoteUpdated", payload: data});
+        })
+    
+        return () => unsubscribe()
+    }
+
+    useEffect(() => {
+        getPublics();
+        getCurrent();
     },[])
 
     return (

@@ -27,6 +27,36 @@ export const Thumbnail = styled.div`
         height: 60%;
     }
 `
+
+export const ThumbButton = styled.button`
+    background-color: rgb(${props => props.backgroundColor});
+    padding: 0;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border: ${ props => props.selected ? '2px solid ' + props.theme.white : 'none' };
+    cursor: pointer;
+
+    &:hover {
+        border: 2px solid ${props => props.theme.white};
+    }
+
+    & > img {
+        width: 60%;
+        height: 60%;
+    }
+`
+
+export const VoteButton = styled.button`
+    background-color: rgba(48, 48, 48, .6);
+    border: 1px solid ${props => props.theme.white};
+    padding: 10px;
+    color: ${props => props.theme.white};
+    cursor: pointer;
+`
+
 export const SearchButton = styled(IconButton)`
     width: 24px;
     height: 24px;

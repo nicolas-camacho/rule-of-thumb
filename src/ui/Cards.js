@@ -69,7 +69,6 @@ export const CardContentContainer = styled.div`
 
 export const RulingCard = styled.div`
     position: relative;
-    width: 348px;
     height: 348px;
     background: linear-gradient(
         ${props => props.theme.darkBackground}, 
@@ -80,13 +79,66 @@ export const RulingCard = styled.div`
 `
 
 export const RulingCardHeader = styled.div`
-    position: absolute;
-    bottom: 50%;
     display: grid;
-    grid-template-columns: auto 2fr;
+    margin: 0rem 4rem 0rem 0;
+    grid-template-columns: auto 100%;
     align-items: flex-end;
+    grid-gap: 0.5rem;
 
     & > h1 {
         align-self: flex-end;
+    }
+`
+
+export const RulingCardBody = styled.div`
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    p {
+        color: ${props => props.theme.white};
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    span {
+        color: ${props => props.theme.white};
+        align-self: flex-end; 
+        font-size: 12px;
+    }
+`
+
+export const CardVoteSection = styled.div`
+    display: flex;
+    align-self: flex-end;
+    margin: 1rem 0 0 2rem;
+    gap: 1rem;
+    align-items: center;
+    font-size: 15px;
+`
+
+export const CardVotesBar = styled.div`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: grid;
+    margin: 0;
+    grid-template-columns: ${props => props.positive}% ${props => props.negative}%;
+    font-size: 1.2rem;
+    color: ${props => props.theme.white};
+    
+    & > div:nth-child(1) {
+        display: flex;
+        justify-content: flex-start;
+        padding-left: 5px;
+        background-color: rgba(${props => props.theme.greenPositive}, .6);
+    }
+
+    & > div:nth-child(2) {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 5px;
+        background-color: rgba(${props => props.theme.yellowNegative}, .6);
     }
 `

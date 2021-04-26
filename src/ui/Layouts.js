@@ -132,9 +132,18 @@ export const RulingsHeadLayout = styled.div`
 `
 
 export const GridLayout = styled.div`
-    display: grid;
-    grid-template-columns: auto auto auto;
+    display: none;
+    grid-template-columns: 1fr;
     column-gap: 27px;
     row-gap: 27px;
     margin: 1rem;
+
+    @media all and (min-width: 768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media all and (min-width: 1100px) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 `
