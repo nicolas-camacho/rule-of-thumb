@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const LogoText = styled.h1`
     margin: 2.5rem 0 0;
     color: ${props => props.theme.white};
-    font-size: 2rem;
+    font-size: 36px;
     font-weight: 400;
     line-height: 2.5rem;
 
@@ -17,6 +17,17 @@ export const LightText = styled.p`
     margin: 0;
     font-weight: 300;
     white-space: nowrap;
+`
+
+export const LightTitleText = styled.div`
+    margin: 0;
+    font-weight: 300;
+    font-size: 2rem;
+    color: ${props => props.theme.darkGray}
+
+    @media all and (min-width: 1100px) {
+        font-size: 3rem;
+    }
 `
 
 export const TitleText = styled.h2`
@@ -75,5 +86,21 @@ export const TextHeroFooter = styled.span`
 
     @media all and (min-width: 1100px) {
         font-size: 2rem;
+    }
+`
+
+export const TextHeroFooterLight = styled(TextHeroFooter)`
+    font-weight: 300;  
+`
+
+export const CardTitleText = styled.h1`
+    margin: 2.5rem 0 0;
+    color: ${props => props.theme.white};
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.8rem;
+
+    @media all and (min-width: 1100px) {
+        margin-top: 3rem;
     }
 `

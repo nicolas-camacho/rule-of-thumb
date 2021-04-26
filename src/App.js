@@ -3,29 +3,28 @@ import { ThemeProvider } from "styled-components";
 
 import {theme, GlobalStyle, CenteredLayout} from "./ui";
 
-import { StoreProvider } from "./store";
 import {
     Navbar,
     Header,
     TipTop,
     TipBottom,
-    Footer
+    Footer,
+    Rulings
 } from "./components";
 
 export default () => {
     return (
-        <StoreProvider>
-            <ThemeProvider theme={theme}>
-                <GlobalStyle />
-                <Navbar />
-                <Header />
-                <CenteredLayout>
-                    <TipTop />
-                    <TipBottom />
-                    <hr />
-                    <Footer />
-                </CenteredLayout>
-            </ThemeProvider>
-        </StoreProvider>
+        <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <Navbar />
+            <Header />
+            <CenteredLayout>
+                <TipTop />
+                <Rulings />
+                <TipBottom />
+                <hr />
+                <Footer />
+            </CenteredLayout>
+        </ThemeProvider>
     )
 }

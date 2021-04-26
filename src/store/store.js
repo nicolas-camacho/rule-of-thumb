@@ -1,17 +1,9 @@
-import React, {useContext, useReducer, createContext} from "react";
+import React, {useContext, useReducer, createContext, useEffect} from "react";
+import firebase from "../store/firebase";
 
-import initial from "../resources/data/data.json";
+const StoreContext = createContext();
 
-const initialState = {
-    publics: localStorage.getItem("publics") ? 
-        localStorage.getItem("publics") : 
-        initial.data.map((person, index) => ({...person, "id":index+1, "voted":false})),
-    mainVote: localStorage.getItem("vote") ? localStorage.getItem("vote") : "none"
-};
-
-const StoreContext = createContext(initialState);
-
-const actions = (state, action) => {
+const reducer = (state, action) => {
     switch (action.type) {
         case "publicsUpdated":
             return updatePublics(state, action);
@@ -23,17 +15,36 @@ const actions = (state, action) => {
 }
 
 const updatePublics = (state, action) => {
-    localStorage.setItem("publics", action.payload);
     return{...state, publics: action.payload};
 };
 
 const updateMainVote = (state, action) => {
-    localStorage.setItem("vote", action.payload);
     return {...state, mainVote: action.payload};
 }
 
 export const StoreProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(actions, initialState);
+    const [state, dispatch] = useReducer(reducer, {
+        publics: [],
+        mainVote: "none"
+    });
+
+    useEffect(() => {
+        let unsubscribe = firebase
+        .firestore()
+        .collection('publics')
+        .onSnapshot( snapshot => {
+            const data = snapshot.docs.map( doc => {
+                return {
+                    id : doc.id,
+                    ...doc.data()
+                }
+            })
+            dispatch({ type: "publicsUpdated", payload: data});
+        })
+
+        return () => unsubscribe()
+    },[])
+
     return (
         <StoreContext.Provider value={{state, dispatch}}>
             {children}

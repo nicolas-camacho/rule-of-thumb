@@ -17,6 +17,7 @@ import {
     BoldText,
     TitleTextHeroFooter,
     TextHeroFooter,
+    TextHeroFooterLight,
     ButtonLayout,
     ColoredButton
 } from "../ui";
@@ -70,7 +71,7 @@ export const Header = () => {
                 </HeroFooterLeft>
                 <HeroFooterRight>
                     <TextHeroFooter>22</TextHeroFooter>
-                    <TextHeroFooter>days</TextHeroFooter>
+                    <TextHeroFooterLight>days</TextHeroFooterLight>
                 </HeroFooterRight>
             </HeroFooter>
         </Hero>

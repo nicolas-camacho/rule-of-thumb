@@ -31,7 +31,7 @@ export const GlassedCardEffect = styled.div`
             ${props => props.theme.darkBackground},
             ${props => props.theme.darkBackground}
         ),
-        -25vw 0/160vw no-repeat url('${pope}');
+        -25vw 0/160vw no-repeat url(${pope});
     filter: blur(1rem);
 
     @media all and (min-width: 768px) {
@@ -64,5 +64,29 @@ export const CardContentContainer = styled.div`
 
     @media all and (min-width: 1100px) {
         padding: 2rem 1.5rem;
+    }
+`
+
+export const RulingCard = styled.div`
+    position: relative;
+    width: 348px;
+    height: 348px;
+    background: linear-gradient(
+        ${props => props.theme.darkBackground}, 
+        ${props => props.theme.darkBackground}
+    ),
+    url(${props => props.photo}) center;
+    background-size: cover;
+`
+
+export const RulingCardHeader = styled.div`
+    position: absolute;
+    bottom: 50%;
+    display: grid;
+    grid-template-columns: auto 2fr;
+    align-items: flex-end;
+
+    & > h1 {
+        align-self: flex-end;
     }
 `

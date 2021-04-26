@@ -124,3 +124,17 @@ export const SocialLayout = styled.div`
         }
     }
 `
+
+export const RulingsHeadLayout = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+`
+
+export const GridLayout = styled.div`
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 27px;
+    row-gap: 27px;
+    margin: 1rem;
+`

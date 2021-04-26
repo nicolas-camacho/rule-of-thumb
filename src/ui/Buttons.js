@@ -11,6 +11,22 @@ export const IconButton = styled.button`
         height: 100%;
     }
 `
+
+export const Thumbnail = styled.div`
+    background-color: rgb(${props => props.backgroundColor});
+    padding: 0;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    margin-right: 6px;
+
+    & > img {
+        width: 60%;
+        height: 60%;
+    }
+`
 export const SearchButton = styled(IconButton)`
     width: 24px;
     height: 24px;
