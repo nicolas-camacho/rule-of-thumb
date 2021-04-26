@@ -24,12 +24,24 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 400;
     }
 
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
     a, a:visited {
         color: ${props => props.theme.white};
     }
 
     body {
         position: relative;
+    }
+
+    hr {
+        border: 0 none;
+        border-bottom: 2px dotted ${props => props.theme.darkGray};
+        margin: 1.5rem 1rem;
     }
 
     @media all and (min-width: 768px) {
@@ -41,6 +53,10 @@ export const GlobalStyle = createGlobalStyle`
     @media all and (min-width: 1100px) {
        html, body {
             font-size: 18px;
+        }
+
+        hr {
+            margin: 2rem 0;
         }
     }
 `

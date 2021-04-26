@@ -1,14 +1,15 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import {theme, GlobalStyle} from "./ui";
+import {theme, GlobalStyle, CenteredLayout} from "./ui";
 
 import { StoreProvider } from "./store";
 import {
     Navbar,
     Header,
     TipTop,
-    TipBottom
+    TipBottom,
+    Footer
 } from "./components";
 
 export default () => {
@@ -18,8 +19,12 @@ export default () => {
                 <GlobalStyle />
                 <Navbar />
                 <Header />
-                <TipTop />
-                <TipBottom />
+                <CenteredLayout>
+                    <TipTop />
+                    <TipBottom />
+                    <hr />
+                    <Footer />
+                </CenteredLayout>
             </ThemeProvider>
         </StoreProvider>
     )

@@ -1,8 +1,6 @@
 
 import styled from "styled-components";
 
-import {Banner} from "./" 
-
 export const CenteredLayout = styled.div`
     display: contents;
 
@@ -14,9 +12,10 @@ export const CenteredLayout = styled.div`
         margin-right: auto;
         margin-left: auto;
 
-        & > * {
-            margin-right: 0;
-            margin-left: 0;
+        & > *,
+        & > hr {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
         }
     }
 `
@@ -52,4 +51,76 @@ export const ButtonLayout = styled.div`
             margin: 1.3rem 0;
         }
     }    
+`
+
+export const FooterLayout = styled.footer`
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 0 1rem 3rem;
+
+    @media all and (min-width: 768px) {
+        align-items: flex-start;
+    }
+`
+
+export const LinksLayout = styled.div`
+    li {
+        padding: .5rem 0;
+        font-size: 1.25rem;
+    }
+
+    li a {
+        color: ${props => props.theme.darkGray};
+        text-decoration: none;
+    }
+
+    li a:hover {
+        color: ${props => props.theme.darkerGray};
+        text-decoration: underline;
+    }
+
+    @media all and (min-width: 768px) {
+        ul {
+            display: flex;
+        }
+
+        ul li {
+            padding: 0;
+            margin-right: 2rem;
+            font-size: 1rem;
+        }
+    }
+`
+
+export const SocialLayout = styled.div`
+    & > span {
+        color: var(--color-darker-gray);
+        font-size: 1.25rem;
+        text-align: right;
+    }
+
+    & > ul {
+        display: flex;
+        margin-top: 1rem;
+    }
+
+    & > ul > li {
+        margin-right: 1rem;
+    }
+
+    @media all and (min-width: 768px) {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: 1rem;
+            color: ${props => props.theme.darkGray};
+            font-size: 0.833rem;
+        }
+
+        & > ul {
+            margin-top: 3px;
+        }
+    }
 `

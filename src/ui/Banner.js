@@ -9,7 +9,8 @@ export const Banner = styled.aside`
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    margin: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     background-color: ${props => props.theme.lightGray};
 
     p {

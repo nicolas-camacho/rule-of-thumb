@@ -32,7 +32,6 @@ export const NavLinks = styled.ul`
     padding: 4rem 0 2rem;
     background-color: ${props => props.theme.darkerBackground};
     transform: translateX(100vw);
-    list-style: none;
     margin: 0;
 
     li {
