@@ -28,7 +28,7 @@ const updateMainVote = (state, action) => {
 
 const updateVote = (state, action) => {
     const { id,  thumb } = action.payload;
-    const { votes } = state.publics.find(public => public.id == id);
+    const { votes } = state.publics.find(item => item.id == id);
 
     if(votes) {
         firebase.firestore().collection('publics').doc(id).update({
@@ -44,7 +44,7 @@ const updateVote = (state, action) => {
 }
 
 const resetVoted = (state, action) => {
-    const checked = state.publics.find(public => public.id == action.payload);
+    const checked = state.publics.find(item => item.id == item.payload);
     if(checked) {
         firebase.firestore().collection('publics').doc(action.payload).update({ voted: false })
     }

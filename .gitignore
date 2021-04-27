@@ -23,5 +23,8 @@ jspm_packages/
 # parcel-build
 dist
 
+#snapshots
+src/test/__snapshots__
+
 
 

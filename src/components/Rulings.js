@@ -68,28 +68,28 @@ const CardSlider = ({ items, thumbSelected, selectThumb, votePublic, resetButton
     return (
     <Slider>
         {items.length != 0 ?
-            items.map((public, index) => {
-                let [ positive, negative ] = calculatePercentages(public.votes)
+            items.map((item, index) => {
+                let [ positive, negative ] = calculatePercentages(item.votes)
                 return (
-                    <RulingCard key={index} photo={public.picture}>
+                    <RulingCard key={index} photo={item.picture}>
                         <RulingCardHeader>
-                            {getGraterVotesThumbnail(public.votes, Thumbnail)}
-                            <CardTitleText>{public.name}</CardTitleText>
+                            {getGraterVotesThumbnail(item.votes, Thumbnail)}
+                            <CardTitleText>{item.name}</CardTitleText>
                         </RulingCardHeader>
                         <RulingCardBody>
-                            <p>{public.description}</p>
-                            {public.voted ? 
+                            <p>{item.description}</p>
+                            {item.voted ? 
                             <span>Thanks for your vote!</span>
-                            : <span>{getHumanTime(public.lastUpdated)} in {public.category}</span>}
+                            : <span>{getHumanTime(item.lastUpdated)} in {item.category}</span>}
                             <CardVoteSection>
-                                {!public.voted ? (
+                                {!item.voted ? (
                                     <>
                                         <ThumbButton 
                                             arial-label="Thumb Up"
                                             size={30} 
                                             backgroundColor={props => props.theme.greenPositive}
-                                            selected={thumbSelected.id == public.id && thumbSelected.thumb == "up"}
-                                            onClick={() => selectThumb(public.id, "up")}
+                                            selected={thumbSelected.id == item.id && thumbSelected.thumb == "up"}
+                                            onClick={() => selectThumb(item.id, "up")}
                                         >
                                             <img src={`${thumbUp}`} alt="Thumb Up Button" />
                                         </ThumbButton>
@@ -97,8 +97,8 @@ const CardSlider = ({ items, thumbSelected, selectThumb, votePublic, resetButton
                                             arial-label="Thumb Down"
                                             size={30} 
                                             backgroundColor={props => props.theme.yellowNegative}
-                                            selected={thumbSelected.id == public.id && thumbSelected.thumb == "down"}
-                                            onClick={() => selectThumb(public.id, "down")}
+                                            selected={thumbSelected.id == item.id && thumbSelected.thumb == "down"}
+                                            onClick={() => selectThumb(item.id, "down")}
                                         >
                                             <img src={`${thumbDown}`} alt="Thumb Down Button" />
                                         </ThumbButton>
@@ -106,9 +106,9 @@ const CardSlider = ({ items, thumbSelected, selectThumb, votePublic, resetButton
                                 ) : null}
                                 <VoteButton
                                     aria-label="Vote"
-                                    disabled={public.voted ? false : thumbSelected.id != public.id} 
-                                    onClick={public.voted ? () => resetButton(public.id) : votePublic}>
-                                    {public.voted ? 'Vote Again' : 'Vote Now'}
+                                    disabled={item.voted ? false : thumbSelected.id != item.id} 
+                                    onClick={item.voted ? () => resetButton(item.id) : votePublic}>
+                                    {item.voted ? 'Vote Again' : 'Vote Now'}
                                 </VoteButton>
                             </CardVoteSection>
                         </RulingCardBody>
@@ -127,44 +127,44 @@ const GridView = ({ items, thumbSelected, selectThumb, votePublic, resetButton }
     return (
         <GridLayout>
             {items.length != 0 ? 
-                items.map((public, index) => {
-                    let [ positive, negative ] = calculatePercentages(public.votes)
+                items.map((item, index) => {
+                    let [ positive, negative ] = calculatePercentages(item.votes)
                     return (
-                    <RulingCard key={index} photo={public.picture}>
+                    <RulingCard key={index} photo={item.picture}>
                         <RulingCardHeader>
-                            {getGraterVotesThumbnail(public.votes, Thumbnail)}
-                            <CardTitleText>{public.name}</CardTitleText>
+                            {getGraterVotesThumbnail(item.votes, Thumbnail)}
+                            <CardTitleText>{item.name}</CardTitleText>
                         </RulingCardHeader>
                         <RulingCardBody>
-                            <p>{public.description}</p>
-                            {public.voted ? 
+                            <p>{item.description}</p>
+                            {item.voted ? 
                             <span>Thanks for your vote!</span>
-                            : <span>{getHumanTime(public.lastUpdated)} in {public.category}</span>}
+                            : <span>{getHumanTime(item.lastUpdated)} in {item.category}</span>}
                             <CardVoteSection>
-                                {!public.voted ? (
+                                {!item.voted ? (
                                     <>
                                         <ThumbButton 
                                         size={30} 
                                         backgroundColor={props => props.theme.greenPositive}
-                                        selected={thumbSelected.id == public.id && thumbSelected.thumb == "up"}
-                                        onClick={() => selectThumb(public.id, "up")}
+                                        selected={thumbSelected.id == item.id && thumbSelected.thumb == "up"}
+                                        onClick={() => selectThumb(item.id, "up")}
                                         >
                                             <img src={`${thumbUp}`} />
                                         </ThumbButton>
                                         <ThumbButton 
                                             size={30} 
                                             backgroundColor={props => props.theme.yellowNegative}
-                                            selected={thumbSelected.id == public.id && thumbSelected.thumb == "down"}
-                                            onClick={() => selectThumb(public.id, "down")}
+                                            selected={thumbSelected.id == item.id && thumbSelected.thumb == "down"}
+                                            onClick={() => selectThumb(item.id, "down")}
                                         >
                                             <img src={`${thumbDown}`} />
                                         </ThumbButton>
                                     </>
                                 ) : null}
                                 <VoteButton 
-                                    disabled={public.voted ? false : thumbSelected.id != public.id} 
-                                    onClick={public.voted ? () => resetButton(public.id) : votePublic}>
-                                    {public.voted ? 'Vote Again' : 'Vote Now'}
+                                    disabled={item.voted ? false : thumbSelected.id != item.id} 
+                                    onClick={item.voted ? () => resetButton(item.id) : votePublic}>
+                                    {item.voted ? 'Vote Again' : 'Vote Now'}
                                 </VoteButton>
                             </CardVoteSection>
                         </RulingCardBody>
@@ -182,49 +182,49 @@ const GridView = ({ items, thumbSelected, selectThumb, votePublic, resetButton }
 const ListView = ({ items, thumbSelected, selectThumb, votePublic, resetButton }) => {
     return (
         <ListLayout>
-            {items.map((public, index) => {
-                let [ positive, negative ] = calculatePercentages(public.votes)
+            {items.map((item, index) => {
+                let [ positive, negative ] = calculatePercentages(item.votes)
                 return(
                     <BannerRuling key={index}>
                         <ComplexBackground>
                             <Gradient />
-                            <Photo photo={public.picture} />
+                            <Photo photo={item.picture} />
                         </ComplexBackground>
-                        {getGraterVotesThumbnail(public.votes, ThumbnailList)}
+                        {getGraterVotesThumbnail(item.votes, ThumbnailList)}
                         <RulingLayoutList>
                             <div></div>
                             <RulingBannerInfo>
-                                <CardTitleText>{public.name}</CardTitleText>
-                                <p>{public.description}</p>
+                                <CardTitleText>{item.name}</CardTitleText>
+                                <p>{item.description}</p>
                             </RulingBannerInfo>
                             <BannerVoteSection>
-                                {public.voted ? 
+                                {item.voted ? 
                                 <span>Thanks for your vote!</span>
-                                : <span>{getHumanTime(public.lastUpdated)} in {public.category}</span>}
+                                : <span>{getHumanTime(item.lastUpdated)} in {item.category}</span>}
                                 <div>
-                                    {!public.voted ? <>
+                                    {!item.voted ? <>
                                         <ThumbButton 
                                             size={40} 
                                             backgroundColor={props => props.theme.greenPositive}
-                                            selected={thumbSelected.id == public.id && thumbSelected.thumb == "up"}
-                                            onClick={() => selectThumb(public.id, "up")}
+                                            selected={thumbSelected.id == item.id && thumbSelected.thumb == "up"}
+                                            onClick={() => selectThumb(item.id, "up")}
                                         >
                                             <img src={`${thumbUp}`} />
                                         </ThumbButton>
                                         <ThumbButton 
                                             size={40} 
                                             backgroundColor={props => props.theme.yellowNegative}
-                                            selected={thumbSelected.id == public.id && thumbSelected.thumb == "down"}
-                                            onClick={() => selectThumb(public.id, "down")}
+                                            selected={thumbSelected.id == item.id && thumbSelected.thumb == "down"}
+                                            onClick={() => selectThumb(item.id, "down")}
                                         >
                                             <img src={`${thumbDown}`} />
                                         </ThumbButton>
                                     </> : null}
                                 </div>
                                 <VoteButton 
-                                    disabled={public.voted ? false : thumbSelected.id != public.id} 
-                                    onClick={public.voted ? () => resetButton(public.id) : votePublic}>
-                                    {public.voted ? 'Vote Again' : 'Vote Now'}
+                                    disabled={item.voted ? false : thumbSelected.id != item.id} 
+                                    onClick={item.voted ? () => resetButton(item.id) : votePublic}>
+                                    {item.voted ? 'Vote Again' : 'Vote Now'}
                                 </VoteButton>
                             </BannerVoteSection>
                         </RulingLayoutList>
