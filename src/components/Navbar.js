@@ -20,7 +20,7 @@ export const Navbar = () => {
             <CenteredLayout>
                 <LogoText>Rule of thumb.</LogoText>
                 <Hamburger>
-                    <img src={`${hamburger}`} />
+                    <img src={`${hamburger}`} alt="Hamburger" />
                 </Hamburger>
                 <NavLinks>
                     <li>
@@ -36,7 +36,7 @@ export const Navbar = () => {
                         <form>
                             <SearchInput />
                             <SearchButton>
-                                <img src={`${search}`}></img>
+                                <img src={`${search}`} alt="Search"></img>
                             </SearchButton>
                         </form>
                     </li>

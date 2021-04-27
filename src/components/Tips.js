@@ -17,7 +17,7 @@ import bgPeople2x from "url:../resources/images/bg-people.@2x.png";
 
 export const TipTop = () => {
     return (
-        <Banner>
+        <Banner aria-label="Speak Out">
             <BannerLeft>
                 <span>Speak out. Be heard.</span>
                 <BannerTitle>Be counted</BannerTitle>
@@ -38,7 +38,7 @@ export const TipTop = () => {
 
 export const TipBottom = () => {
     return (
-        <Banner>
+        <Banner aria-label="Submit a name">
             <BannerBackground 
                 srcSet={`${bgPeople} 750w, ${bgPeople2x} 1440w`}
                 sizes="(min-width: 750px) 1440px, 100vw"
@@ -48,7 +48,7 @@ export const TipBottom = () => {
                 <h2>Is there anyone else you would want us to add?</h2>
             </div>
             <BannerButtonContainer>
-                <BigSubmitButton>
+                <BigSubmitButton aria-label="close">
                     Submit a name
                 </BigSubmitButton>
             </BannerButtonContainer>

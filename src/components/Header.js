@@ -34,6 +34,7 @@ export const Header = () => {
                 srcSet={`${pope} 750w, ${pope2x} 1440w`}
                 sizes="(min-width: 750px) 1440px, 100vw"
                 src={`${pope}`}
+                alt="hero"
             />
             <CenteredLayout>
                 <Card>
@@ -56,10 +57,10 @@ export const Header = () => {
                         </BoldText>
                         <ButtonLayout>
                             <ColoredButton backgroundColor={props => props.theme.greenPositive}>
-                                <img src={`${thumbUp}`} />
+                                <img src={`${thumbUp}`} alt="Big Thumb Up" />
                             </ColoredButton>
                             <ColoredButton backgroundColor={props => props.theme.yellowNegative}>
-                                <img src={`${thumbDown}`} />
+                                <img src={`${thumbDown}`} alt="Big Thumb Down" />
                             </ColoredButton>
                         </ButtonLayout>
                     </CardContentContainer>

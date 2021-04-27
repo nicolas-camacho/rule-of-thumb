@@ -40,14 +40,14 @@ const getGraterVotesThumbnail = (votes, Thumb) => {
     if(votes.positive > votes.negative) {
         return(
             <Thumb backgroundColor={props => props.theme.greenPositive}>
-                <img src={`${thumbUp}`} />
+                <img src={`${thumbUp}`} alt="Thumb Up" />
             </Thumb>
         )
     }
 
     return(
         <Thumb backgroundColor={props => props.theme.yellowNegative}>
-            <img src={`${thumbDown}`} />
+            <img src={`${thumbDown}`} alt="Thumb Down" />
         </Thumb>
     )
 }
@@ -85,24 +85,27 @@ const CardSlider = ({ items, thumbSelected, selectThumb, votePublic, resetButton
                                 {!public.voted ? (
                                     <>
                                         <ThumbButton 
-                                        size={30} 
-                                        backgroundColor={props => props.theme.greenPositive}
-                                        selected={thumbSelected.id == public.id && thumbSelected.thumb == "up"}
-                                        onClick={() => selectThumb(public.id, "up")}
+                                            arial-label="Thumb Up"
+                                            size={30} 
+                                            backgroundColor={props => props.theme.greenPositive}
+                                            selected={thumbSelected.id == public.id && thumbSelected.thumb == "up"}
+                                            onClick={() => selectThumb(public.id, "up")}
                                         >
-                                            <img src={`${thumbUp}`} />
+                                            <img src={`${thumbUp}`} alt="Thumb Up Button" />
                                         </ThumbButton>
                                         <ThumbButton 
+                                            arial-label="Thumb Down"
                                             size={30} 
                                             backgroundColor={props => props.theme.yellowNegative}
                                             selected={thumbSelected.id == public.id && thumbSelected.thumb == "down"}
                                             onClick={() => selectThumb(public.id, "down")}
                                         >
-                                            <img src={`${thumbDown}`} />
+                                            <img src={`${thumbDown}`} alt="Thumb Down Button" />
                                         </ThumbButton>
                                     </>
                                 ) : null}
-                                <VoteButton 
+                                <VoteButton
+                                    aria-label="Vote"
                                     disabled={public.voted ? false : thumbSelected.id != public.id} 
                                     onClick={public.voted ? () => resetButton(public.id) : votePublic}>
                                     {public.voted ? 'Vote Again' : 'Vote Now'}
