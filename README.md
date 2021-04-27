@@ -1,6 +1,7 @@
 # rule-of-thumb
 Rule of Thumb is an app where you can vote with thumb up or thumb down to your favorite celebrities
 
+- `yarn install` - This will install all the dependencies needed to run the project.
 - `yarn start` — This will spawn a development server with a default port of `1234`.
 - `yarn run build` — This will output a production build in the `dist` directory.
 
