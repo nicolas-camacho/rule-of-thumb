@@ -98,7 +98,11 @@ export const CardTitleText = styled.h1`
     color: ${props => props.theme.white};
     font-size: 36px;
     font-weight: 400;
-    line-height: 1.8rem;
+    line-height: 2.6rem;
+
+    @media all and (min-width: 768px) {
+        line-height: 1.8rem;
+    }
 
     @media all and (min-width: 1100px) {
         margin-top: 3rem;

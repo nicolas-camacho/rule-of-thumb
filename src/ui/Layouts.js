@@ -131,6 +131,15 @@ export const RulingsHeadLayout = styled.div`
     margin: 1rem;
 `
 
+export const RulingLayoutList = styled.div`
+    display: Grid;
+    grid-template-columns: 20% 50% 30%;
+    
+    & > * {
+        z-index: 4;
+    }
+`
+
 export const GridLayout = styled.div`
     display: none;
     grid-template-columns: 1fr;
@@ -145,5 +154,15 @@ export const GridLayout = styled.div`
 
     @media all and (min-width: 1100px) {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+`
+
+export const ListLayout = styled.div`
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    
+    @media all and (min-width: 768px) {
+        display: flex;
     }
 `

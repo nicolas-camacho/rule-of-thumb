@@ -5,6 +5,11 @@ import { IconButton } from "./"
 export const Dropdown = styled.div`
     width: 9rem;
     color: ${props => props.theme.darkerGray};
+    display: none;
+
+    @media all and (min-width: 768px) {
+        display: block;
+    }
 `
 
 export const DropdownHeader = styled.div`

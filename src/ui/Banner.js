@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import {IconButton} from "./"
+import {IconButton, VoteButton, CardVotesBar} from "./"
 
 export const Banner = styled.aside`
     position: relative;
@@ -122,5 +122,92 @@ export const BannerButtonContainer = styled.div`
 
     @media all and (min-width: 768px) {
         width: auto;
+    }
+`
+
+export const BannerRuling = styled.div`
+    position: relative;
+    width: 100%;
+    height: 170px;
+
+    ${CardVotesBar} {
+        z-index: 4;
+    }
+`
+
+export const ComplexBackground = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        ${props => props.theme.darkBackground}, 
+        ${props => props.theme.darkBackground}
+    );
+`
+
+export const Photo = styled.div`
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+        ${props => props.theme.darkBackground}, 
+        ${props => props.theme.darkBackground}
+    ), url('${props => props.photo}');
+    background-size: cover;
+`
+
+export const Gradient = styled.div`
+    z-index: 2;
+    position: absolute;
+    left: 15%;
+    height: 100%;
+    width: 85%;
+    background: 
+        linear-gradient(90deg, rgba(0,0,0,0.01) 0%, 
+        rgba(136,136,136,1) 14%, rgba(102,102,102,1) 72%);
+`
+
+export const RulingBannerInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h1 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    p {
+        color: ${props => props.theme.white};
+        font-size: 15px;
+        font-weight: 300;
+        margin: 0;
+    }
+`
+
+export const BannerVoteSection = styled.div`
+    display: grid;
+    grid-template-columns: 30% 50%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    ${VoteButton} {
+        width: 9rem;
+    }
+    
+    span {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color: ${props => props.theme.white};
+        align-self: flex-end; 
+        font-size: 12px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    div {
+        display: flex;
+        gap: 1rem;
     }
 `

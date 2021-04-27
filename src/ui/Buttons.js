@@ -28,12 +28,19 @@ export const Thumbnail = styled.div`
     }
 `
 
+export const ThumbnailList = styled(Thumbnail)`
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+`
+
 export const ThumbButton = styled.button`
     background-color: rgb(${props => props.backgroundColor});
     padding: 0;
     border: 0;
-    width: 30px;
-    height: 30px;
+    width: ${props => props.size}px;
+    height: ${props => props.size}px;
     display: grid;
     place-items: center;
     border: ${ props => props.selected ? '2px solid ' + props.theme.white : 'none' };
@@ -50,11 +57,11 @@ export const ThumbButton = styled.button`
 `
 
 export const VoteButton = styled.button`
-    background-color: rgba(48, 48, 48, .6);
+    background-color: ${props => props.disabled ? props.theme.darkerBackground : 'rgba(48, 48, 48, .6)'};
     border: 1px solid ${props => props.theme.white};
-    padding: 10px;
+    padding: 12px;
     color: ${props => props.theme.white};
-    cursor: pointer;
+    cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
 `
 
 export const SearchButton = styled(IconButton)`

@@ -7,8 +7,12 @@ const reducer = (state, action) => {
     switch (action.type) {
         case "publicsUpdated":
             return updatePublics(state, action);
+        case "voted":
+            return updateVote(state, action);
         case "mainVoteUpdated":
             return updateMainVote(state, action);
+        case "reset":
+            return resetVoted(state, action)
         default:
             console.log("Default")
     }
@@ -20,6 +24,31 @@ const updatePublics = (state, action) => {
 
 const updateMainVote = (state, action) => {
     return {...state, mainVote: action.payload};
+}
+
+const updateVote = (state, action) => {
+    const { id,  thumb } = action.payload;
+    const { votes } = state.publics.find(public => public.id == id);
+
+    if(votes) {
+        firebase.firestore().collection('publics').doc(id).update({
+            voted: true,
+            votes: {
+                positive: thumb == 'up' ? votes.positive + 1 : votes.positive,
+                negative: thumb == 'down' ? votes.negative + 1 : votes.negative
+            }
+        })
+    }
+
+    return {...state}
+}
+
+const resetVoted = (state, action) => {
+    const checked = state.publics.find(public => public.id == action.payload);
+    if(checked) {
+        firebase.firestore().collection('publics').doc(action.payload).update({ voted: false })
+    }
+    return {...state}
 }
 
 export const StoreProvider = ({ children }) => {

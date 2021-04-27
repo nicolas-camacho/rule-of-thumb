@@ -141,4 +141,8 @@ export const CardVotesBar = styled.div`
         padding-right: 5px;
         background-color: rgba(${props => props.theme.yellowNegative}, .6);
     }
+
+    & > div {
+        gap: .5rem;
+    }
 `

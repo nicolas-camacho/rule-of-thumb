@@ -8,3 +8,4 @@ export * from "./Hero";
 export * from "./Cards";
 export * from "./Banner";
 export * from "./Dropdown";
+export * from "./Slider";
